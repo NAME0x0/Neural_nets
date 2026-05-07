@@ -2,7 +2,13 @@
 
 import { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { ACTIVATIONS, ACTIVATION_LIST } from '@/lib/nn/activations';
 import type { ActivationName } from '@/lib/nn/types';
 
@@ -17,8 +23,14 @@ export function ActivationPlot() {
     const w = root.clientWidth;
     const h = 320;
     const svg = d3.select(root).append('svg').attr('width', w).attr('height', h);
-    const xScale = d3.scaleLinear().domain([-5, 5]).range([40, w - 16]);
-    const yScale = d3.scaleLinear().domain([-1.2, 1.2]).range([h - 30, 16]);
+    const xScale = d3
+      .scaleLinear()
+      .domain([-5, 5])
+      .range([40, w - 16]);
+    const yScale = d3
+      .scaleLinear()
+      .domain([-1.2, 1.2])
+      .range([h - 30, 16]);
 
     svg
       .append('g')

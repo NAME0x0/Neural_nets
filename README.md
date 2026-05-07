@@ -2,7 +2,7 @@
 
 # Neural Nets
 
-### Build, train, and *understand* a neural network — entirely in your browser.
+### Build, train, and _understand_ a neural network — entirely in your browser.
 
 An interactive teaching platform that pairs a real, working neural network with a six-chapter curriculum on the linear algebra, calculus, and backpropagation that make it learn.
 
@@ -51,28 +51,28 @@ When you're done reading, the same browser tab has a full training playground. U
 
 ## What you can do
 
-| | |
-| :-- | :-- |
-| 🧱 **Compose any feed-forward architecture** | Stack layers, pick activations, choose your loss and optimizer — all without writing a line of code. |
-| 📦 **Train on built-in or custom data** | XOR · Two Moons · Concentric Circles · 3-Class Spiral · Gaussian Blobs · or upload your own CSV. |
-| 👁 **Watch it learn live** | Edge thickness/color in the network graph reflects weight magnitude/sign. Decision boundary updates in real time. |
-| ⚡ **Train without UI freeze** | Training runs in a Web Worker. The main thread stays responsive even on long runs. |
-| 📊 **Analyze afterwards** | Confusion matrix, weight histograms, accuracy curves. |
-| 📚 **Learn the math** | Six chapters covering linear algebra, calculus, neural networks, gradient descent, and backpropagation — derived from scratch and matched to the source code. |
-| 🧭 **Hand-held tour** | First-time visitors get an interactive 5-step tour through the workspace. Contextual help is one hover away on every control. |
+|                                              |                                                                                                                                                               |
+| :------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| 🧱 **Compose any feed-forward architecture** | Stack layers, pick activations, choose your loss and optimizer — all without writing a line of code.                                                          |
+| 📦 **Train on built-in or custom data**      | XOR · Two Moons · Concentric Circles · 3-Class Spiral · Gaussian Blobs · or upload your own CSV.                                                              |
+| 👁 **Watch it learn live**                   | Edge thickness/color in the network graph reflects weight magnitude/sign. Decision boundary updates in real time.                                             |
+| ⚡ **Train without UI freeze**               | Training runs in a Web Worker. The main thread stays responsive even on long runs.                                                                            |
+| 📊 **Analyze afterwards**                    | Confusion matrix, weight histograms, accuracy curves.                                                                                                         |
+| 📚 **Learn the math**                        | Six chapters covering linear algebra, calculus, neural networks, gradient descent, and backpropagation — derived from scratch and matched to the source code. |
+| 🧭 **Hand-held tour**                        | First-time visitors get an interactive 5-step tour through the workspace. Contextual help is one hover away on every control.                                 |
 
 ## The curriculum
 
 Open the **Learn** tab in the app, or browse the routes directly:
 
-| | Chapter | What you'll get |
-| :-: | :-- | :-- |
-| 1 | [**Linear algebra**](src/app/learn/linear-algebra/page.tsx) | Vectors, dot products, matrix multiplication. The language every neural network speaks. |
-| 2 | [**Calculus you actually need**](src/app/learn/calculus/page.tsx) | Derivatives, partials, gradients, chain rule. No measure theory, no epsilons. |
-| 3 | [**Neural networks**](src/app/learn/neural-networks/page.tsx) | One neuron → one layer → a deep stack. End-to-end forward pass, derived. |
-| 4 | [**Gradient descent**](src/app/learn/gradient-descent/page.tsx) | The update rule, learning rates, momentum, what Adam is actually doing. |
-| 5 | [**Backpropagation**](src/app/learn/backpropagation/page.tsx) | Derived line by line and mapped to the code in this repo. |
-| 6 | [**Build your own**](src/app/learn/build-your-own/page.tsx) | Five guided rounds in the workspace using problems whose answers you already know. |
+|     | Chapter                                                           | What you'll get                                                                         |
+| :-: | :---------------------------------------------------------------- | :-------------------------------------------------------------------------------------- |
+|  1  | [**Linear algebra**](src/app/learn/linear-algebra/page.tsx)       | Vectors, dot products, matrix multiplication. The language every neural network speaks. |
+|  2  | [**Calculus you actually need**](src/app/learn/calculus/page.tsx) | Derivatives, partials, gradients, chain rule. No measure theory, no epsilons.           |
+|  3  | [**Neural networks**](src/app/learn/neural-networks/page.tsx)     | One neuron → one layer → a deep stack. End-to-end forward pass, derived.                |
+|  4  | [**Gradient descent**](src/app/learn/gradient-descent/page.tsx)   | The update rule, learning rates, momentum, what Adam is actually doing.                 |
+|  5  | [**Backpropagation**](src/app/learn/backpropagation/page.tsx)     | Derived line by line and mapped to the code in this repo.                               |
+|  6  | [**Build your own**](src/app/learn/build-your-own/page.tsx)       | Five guided rounds in the workspace using problems whose answers you already know.      |
 
 Every chapter ships interactive demos: a vector playground, a step-by-step matrix-multiplication animator, an activation/derivative plotter, a chain-rule visualizer, a gradient-descent ball, and a single-neuron decision-boundary explorer.
 
@@ -152,18 +152,18 @@ Adding a feature → extend the union on both ends. Decision-boundary grids cros
 
 ## Scripts
 
-| Command | Purpose |
-| :-- | :-- |
-| `npm run dev` | Local dev server at `http://localhost:3000` |
-| `npm run build` | Static export → `./out/` |
-| `npm run start` | Serve a previously-built site |
-| `npm run lint` | ESLint (Next.js + TypeScript rules) |
-| `npm run typecheck` | `tsc --noEmit` (strict, `noUncheckedIndexedAccess`) |
-| `npm test` | Vitest unit + numerical gradient check |
-| `npm run test:watch` | Vitest watch mode |
-| `npm run test:e2e` | Playwright smoke tests |
-| `npm run format` | Prettier write |
-| `npm run format:check` | Prettier verify (CI uses this) |
+| Command                | Purpose                                             |
+| :--------------------- | :-------------------------------------------------- |
+| `npm run dev`          | Local dev server at `http://localhost:3000`         |
+| `npm run build`        | Static export → `./out/`                            |
+| `npm run start`        | Serve a previously-built site                       |
+| `npm run lint`         | ESLint (Next.js + TypeScript rules)                 |
+| `npm run typecheck`    | `tsc --noEmit` (strict, `noUncheckedIndexedAccess`) |
+| `npm test`             | Vitest unit + numerical gradient check              |
+| `npm run test:watch`   | Vitest watch mode                                   |
+| `npm run test:e2e`     | Playwright smoke tests                              |
+| `npm run format`       | Prettier write                                      |
+| `npm run format:check` | Prettier verify (CI uses this)                      |
 
 Run a single test file: `npm test -- src/lib/nn/network.test.ts`.
 
@@ -224,7 +224,7 @@ Inspiration drawn from:
 - Andrej Karpathy's "Spelled-out intro to neural networks" series.
 - Chris Olah's blog for visual intuition.
 - TensorFlow Playground (Daniel Smilkov, Shan Carter) for the decision-boundary aesthetic.
-- Goodfellow, Bengio &amp; Courville, *Deep Learning* — the structural backbone of chapter 5.
+- Goodfellow, Bengio &amp; Courville, _Deep Learning_ — the structural backbone of chapter 5.
 
 ## License
 

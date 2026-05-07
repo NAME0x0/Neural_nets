@@ -5,8 +5,21 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
 import { HelpHint } from '@/components/ui/tooltip';
 import { ACTIVATION_LIST } from '@/lib/nn/activations';
 import { LOSS_LIST } from '@/lib/nn/losses';
@@ -50,7 +63,9 @@ export function ArchitectureTab() {
             <div className="space-y-1.5">
               <Label htmlFor="input-size" className="flex items-center gap-1.5">
                 Input size{' '}
-                <HelpHint>Number of features per example. For XOR it's 2; for a 28×28 image it's 784.</HelpHint>
+                <HelpHint>
+                  Number of features per example. For XOR it's 2; for a 28×28 image it's 784.
+                </HelpHint>
               </Label>
               <Input
                 id="input-size"
@@ -64,7 +79,8 @@ export function ArchitectureTab() {
               <Label className="flex items-center gap-1.5">
                 Loss{' '}
                 <HelpHint>
-                  How wrongness is measured. MSE for regression, BCE for yes/no, CCE for multi-class.
+                  How wrongness is measured. MSE for regression, BCE for yes/no, CCE for
+                  multi-class.
                 </HelpHint>
               </Label>
               <Select value={loss} onValueChange={(v) => setLoss(v as LossName)}>
@@ -138,7 +154,9 @@ export function ArchitectureTab() {
                     <TableCell>
                       <Select
                         value={l.activation}
-                        onValueChange={(v) => updateLayer(l.id, { activation: v as ActivationName })}
+                        onValueChange={(v) =>
+                          updateLayer(l.id, { activation: v as ActivationName })
+                        }
                       >
                         <SelectTrigger className="h-8">
                           <SelectValue />
@@ -173,7 +191,9 @@ export function ArchitectureTab() {
       <Card className="overflow-hidden">
         <CardHeader>
           <CardTitle>Network preview</CardTitle>
-          <CardDescription>Live render. Edge thickness scales with weight magnitude.</CardDescription>
+          <CardDescription>
+            Live render. Edge thickness scales with weight magnitude.
+          </CardDescription>
         </CardHeader>
         <CardContent className="h-[520px] p-0">
           <NetworkGraph />

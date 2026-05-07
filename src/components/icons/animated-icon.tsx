@@ -20,7 +20,10 @@ const variants: Record<Exclude<IconAnimation, 'none'>, Record<string, unknown>> 
   pulse: { animate: { scale: [1, 1.08, 1], transition: { duration: 1.6, repeat: Infinity } } },
   spin: { animate: { rotate: 360, transition: { duration: 4, repeat: Infinity, ease: 'linear' } } },
   wiggle: {
-    animate: { rotate: [0, -8, 8, -6, 6, 0], transition: { duration: 1.2, repeat: Infinity, repeatDelay: 1.6 } },
+    animate: {
+      rotate: [0, -8, 8, -6, 6, 0],
+      transition: { duration: 1.2, repeat: Infinity, repeatDelay: 1.6 },
+    },
   },
   float: {
     animate: { y: [0, -3, 0], transition: { duration: 2.4, repeat: Infinity, ease: 'easeInOut' } },

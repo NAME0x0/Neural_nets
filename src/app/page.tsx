@@ -22,8 +22,9 @@ export default function Page() {
               <span className="text-foreground">made click-by-click obvious.</span>
             </h1>
             <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-              Build a network. Pick a dataset. Watch it learn — with the math right there next to it. The Learn
-              section walks you through linear algebra, calculus, and backpropagation from first principles.
+              Build a network. Pick a dataset. Watch it learn — with the math right there next to
+              it. The Learn section walks you through linear algebra, calculus, and backpropagation
+              from first principles.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               <Link

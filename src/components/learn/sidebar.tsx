@@ -14,10 +14,26 @@ interface Chapter {
 
 const CHAPTERS: Chapter[] = [
   { href: '/learn', title: 'Start here', subtitle: 'How this guide works', emoji: '🧭' },
-  { href: '/learn/linear-algebra', title: '1. Linear algebra', subtitle: 'Vectors, matrices, dot products' },
-  { href: '/learn/calculus', title: '2. Calculus you actually need', subtitle: 'Derivatives, partials, chain rule' },
-  { href: '/learn/neural-networks', title: '3. Neural networks', subtitle: 'Forward pass, end to end' },
-  { href: '/learn/gradient-descent', title: '4. Gradient descent', subtitle: 'How learning happens' },
+  {
+    href: '/learn/linear-algebra',
+    title: '1. Linear algebra',
+    subtitle: 'Vectors, matrices, dot products',
+  },
+  {
+    href: '/learn/calculus',
+    title: '2. Calculus you actually need',
+    subtitle: 'Derivatives, partials, chain rule',
+  },
+  {
+    href: '/learn/neural-networks',
+    title: '3. Neural networks',
+    subtitle: 'Forward pass, end to end',
+  },
+  {
+    href: '/learn/gradient-descent',
+    title: '4. Gradient descent',
+    subtitle: 'How learning happens',
+  },
   { href: '/learn/backpropagation', title: '5. Backpropagation', subtitle: 'Derived from scratch' },
   { href: '/learn/build-your-own', title: '6. Build your own', subtitle: 'Bring it all together' },
 ];
@@ -38,7 +54,9 @@ export function LearnSidebar() {
                 href={c.href}
                 className={cn(
                   'group block rounded-lg px-3 py-2 text-sm transition-colors',
-                  active ? 'bg-primary/10 text-foreground' : 'hover:bg-accent/40 text-muted-foreground hover:text-foreground',
+                  active
+                    ? 'bg-primary/10 text-foreground'
+                    : 'text-muted-foreground hover:bg-accent/40 hover:text-foreground',
                 )}
               >
                 <div className="flex items-center justify-between">

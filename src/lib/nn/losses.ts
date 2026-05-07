@@ -20,7 +20,7 @@ const mse: Loss = {
   },
   backward(yTrue, yPred) {
     const out = mat(yTrue.rows, yTrue.cols);
-    const n = yTrue.rows;
+    const n = yTrue.data.length;
     for (let i = 0; i < yTrue.data.length; i++) {
       out.data[i] = (2 * (yPred.data[i]! - yTrue.data[i]!)) / n;
     }
@@ -39,7 +39,7 @@ const binaryCrossEntropy: Loss = {
   },
   backward(yTrue, yPred) {
     const out = mat(yTrue.rows, yTrue.cols);
-    const n = yTrue.rows;
+    const n = yTrue.data.length;
     for (let i = 0; i < yTrue.data.length; i++) {
       const p = Math.max(EPS, Math.min(1 - EPS, yPred.data[i]!));
       out.data[i] = (-(yTrue.data[i]! / p) + (1 - yTrue.data[i]!) / (1 - p)) / n;

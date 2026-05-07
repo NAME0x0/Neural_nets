@@ -118,7 +118,12 @@ export function VisualizationTab({ worker }: Props) {
       if (row.length === 1) return row[0]! > 0.5 ? 1 : 0;
       let best = 0;
       let bestVal = -Infinity;
-      for (let j = 0; j < row.length; j++) if (row[j]! > bestVal) (bestVal = row[j]!), (best = j);
+      for (let j = 0; j < row.length; j++) {
+        if (row[j]! > bestVal) {
+          bestVal = row[j]!;
+          best = j;
+        }
+      }
       return best;
     };
     const draw = (X: number[][], Y: number[][]) => {
@@ -142,7 +147,9 @@ export function VisualizationTab({ worker }: Props) {
       <Card>
         <CardHeader>
           <CardTitle>Live network</CardTitle>
-          <CardDescription>Edge color = sign, thickness = magnitude. Updates as it learns.</CardDescription>
+          <CardDescription>
+            Edge color = sign, thickness = magnitude. Updates as it learns.
+          </CardDescription>
         </CardHeader>
         <CardContent className="h-[480px] p-0">
           <NetworkGraph />

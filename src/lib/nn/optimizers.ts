@@ -19,7 +19,8 @@ export function makeOptimizer(name: OptimizerName, learningRate: number): Optimi
         newSlot: () => ({ t: 0 }),
         step(param, grad) {
           for (let i = 0; i < param.data.length; i++) {
-            param.data[i] -= learningRate * grad.data[i]!;
+            const value = param.data[i]! - learningRate * grad.data[i]!;
+            param.data[i] = value;
           }
         },
       };
@@ -31,7 +32,7 @@ export function makeOptimizer(name: OptimizerName, learningRate: number): Optimi
           const m = slot.m!;
           for (let i = 0; i < param.data.length; i++) {
             m.data[i] = beta * m.data[i]! + (1 - beta) * grad.data[i]!;
-            param.data[i] -= learningRate * m.data[i]!;
+            param.data[i] = param.data[i]! - learningRate * m.data[i]!;
           }
         },
       };
@@ -55,7 +56,7 @@ export function makeOptimizer(name: OptimizerName, learningRate: number): Optimi
             v.data[i] = b2 * v.data[i]! + (1 - b2) * g * g;
             const mh = m.data[i]! / c1;
             const vh = v.data[i]! / c2;
-            param.data[i] -= (learningRate * mh) / (Math.sqrt(vh) + eps);
+            param.data[i] = param.data[i]! - (learningRate * mh) / (Math.sqrt(vh) + eps);
           }
         },
       };

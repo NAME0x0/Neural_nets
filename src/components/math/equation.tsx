@@ -19,7 +19,9 @@ export function InlineMath({ children, className }: InlineProps) {
       }),
     [children],
   );
-  return <span className={cn('katex-inline', className)} dangerouslySetInnerHTML={{ __html: html }} />;
+  return (
+    <span className={cn('katex-inline', className)} dangerouslySetInnerHTML={{ __html: html }} />
+  );
 }
 
 interface BlockProps {
@@ -40,15 +42,10 @@ export function Equation({ children, className, caption }: BlockProps) {
   );
   return (
     <figure
-      className={cn(
-        'my-4 overflow-x-auto rounded-lg border bg-muted/40 px-4 py-3',
-        className,
-      )}
+      className={cn('my-4 overflow-x-auto rounded-lg border bg-muted/40 px-4 py-3', className)}
     >
       <div className="text-base" dangerouslySetInnerHTML={{ __html: html }} />
-      {caption && (
-        <figcaption className="mt-2 text-xs text-muted-foreground">{caption}</figcaption>
-      )}
+      {caption && <figcaption className="mt-2 text-xs text-muted-foreground">{caption}</figcaption>}
     </figure>
   );
 }

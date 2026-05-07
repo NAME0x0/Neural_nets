@@ -6,7 +6,13 @@ import { Upload } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import { Badge } from '@/components/ui/badge';
 import { BUILTIN_DATASETS, BUILTIN_DATASET_LIST, type BuiltinDatasetId } from '@/lib/datasets';
 import { csvToDataset, parseCsv } from '@/lib/datasets/csv';
@@ -107,7 +113,11 @@ export function DatasetsTab() {
                 if (f) void onUpload(f);
               }}
             />
-            <Button variant="secondary" className="w-full" onClick={() => fileInput.current?.click()}>
+            <Button
+              variant="secondary"
+              className="w-full"
+              onClick={() => fileInput.current?.click()}
+            >
               <Upload className="mr-2 h-4 w-4" />
               Upload CSV
             </Button>
@@ -139,7 +149,9 @@ export function DatasetsTab() {
       <Card className="overflow-hidden">
         <CardHeader>
           <CardTitle>Preview</CardTitle>
-          <CardDescription>2-D scatter for 2-feature sets; otherwise feature distributions.</CardDescription>
+          <CardDescription>
+            2-D scatter for 2-feature sets; otherwise feature distributions.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <DatasetPreview />
@@ -194,8 +206,14 @@ function DatasetPreview() {
     const padX = (xExt[1] - xExt[0]) * 0.1 || 1;
     const padY = (yExt[1] - yExt[0]) * 0.1 || 1;
 
-    const xScale = d3.scaleLinear().domain([xExt[0] - padX, xExt[1] + padX]).range([40, w - 20]);
-    const yScale = d3.scaleLinear().domain([yExt[0] - padY, yExt[1] + padY]).range([h - 30, 20]);
+    const xScale = d3
+      .scaleLinear()
+      .domain([xExt[0] - padX, xExt[1] + padX])
+      .range([40, w - 20]);
+    const yScale = d3
+      .scaleLinear()
+      .domain([yExt[0] - padY, yExt[1] + padY])
+      .range([h - 30, 20]);
 
     svg
       .append('g')
@@ -213,7 +231,12 @@ function DatasetPreview() {
       if (row.length === 1) return row[0]! > 0.5 ? 1 : 0;
       let best = 0;
       let bestVal = -Infinity;
-      for (let j = 0; j < row.length; j++) if (row[j]! > bestVal) (bestVal = row[j]!), (best = j);
+      for (let j = 0; j < row.length; j++) {
+        if (row[j]! > bestVal) {
+          bestVal = row[j]!;
+          best = j;
+        }
+      }
       return best;
     };
 

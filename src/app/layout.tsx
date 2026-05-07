@@ -27,7 +27,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrains.variable} dark`} suppressHydrationWarning>
+    <html
+      lang="en"
+      className={`${inter.variable} ${jetbrains.variable} dark`}
+      suppressHydrationWarning
+    >
       <body className="flex min-h-screen flex-col font-sans antialiased">
         <div className="grid-bg fixed inset-0 -z-10 opacity-40" aria-hidden />
         <SiteNav />

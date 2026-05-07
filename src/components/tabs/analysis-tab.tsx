@@ -45,10 +45,7 @@ export function AnalysisTab() {
         </CardHeader>
         <CardContent>
           {confusion ? (
-            <ConfusionMatrix
-              matrix={confusion}
-              classNames={dataset?.classNames}
-            />
+            <ConfusionMatrix matrix={confusion} classNames={dataset?.classNames} />
           ) : (
             <div className="flex h-[300px] items-center justify-center text-sm text-muted-foreground">
               Train the network to see results.
@@ -163,7 +160,10 @@ function Histogram({ values }: { values: number[] }) {
     const svg = d3.select(root).append('svg').attr('width', w).attr('height', h);
     const ext = d3.extent(values) as [number, number];
     const bins = d3.bin().domain(ext).thresholds(40)(values);
-    const x = d3.scaleLinear().domain(ext).range([40, w - 16]);
+    const x = d3
+      .scaleLinear()
+      .domain(ext)
+      .range([40, w - 16]);
     const y = d3
       .scaleLinear()
       .domain([0, d3.max(bins, (d) => d.length) ?? 1])

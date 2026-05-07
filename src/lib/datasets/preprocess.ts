@@ -9,9 +9,7 @@ export function oneHot(labels: number[], numClasses: number): number[][] {
   });
 }
 
-export function normalize(
-  X: number[][],
-): { X: number[][]; mean: number[]; std: number[] } {
+export function normalize(X: number[][]): { X: number[][]; mean: number[]; std: number[] } {
   const cols = X[0]?.length ?? 0;
   const mean = new Array<number>(cols).fill(0);
   const std = new Array<number>(cols).fill(0);

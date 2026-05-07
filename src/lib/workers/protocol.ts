@@ -12,7 +12,14 @@ export type WorkerInbound =
   | { type: 'step'; batchSize: number }
   | { type: 'reset' }
   | { type: 'set_lr'; learningRate: number }
-  | { type: 'predict_grid'; xMin: number; xMax: number; yMin: number; yMax: number; resolution: number }
+  | {
+      type: 'predict_grid';
+      xMin: number;
+      xMax: number;
+      yMin: number;
+      yMax: number;
+      resolution: number;
+    }
   | { type: 'snapshot' };
 
 export type WorkerOutbound =

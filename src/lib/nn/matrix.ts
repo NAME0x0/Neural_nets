@@ -48,7 +48,8 @@ export function matmul(a: Matrix, b: Matrix): Matrix {
       const aip = A[i * k + p]!;
       if (aip === 0) continue;
       for (let j = 0; j < cc; j++) {
-        C[i * cc + j] += aip * B[p * cc + j]!;
+        const index = i * cc + j;
+        C[index] = C[index]! + aip * B[p * cc + j]!;
       }
     }
   }
@@ -71,7 +72,10 @@ export function addRowVecInPlace(a: Matrix, b: Matrix): void {
     throw new Error(`addRowVec shape mismatch: ${a.rows}x${a.cols} += 1x${b.cols}`);
   }
   for (let i = 0; i < a.rows; i++) {
-    for (let j = 0; j < a.cols; j++) a.data[i * a.cols + j] += b.data[j]!;
+    for (let j = 0; j < a.cols; j++) {
+      const index = i * a.cols + j;
+      a.data[index] = a.data[index]! + b.data[j]!;
+    }
   }
 }
 
@@ -94,7 +98,9 @@ export function hadamard(a: Matrix, b: Matrix): Matrix {
 export function sumRows(m: Matrix): Matrix {
   const out = mat(1, m.cols);
   for (let i = 0; i < m.rows; i++) {
-    for (let j = 0; j < m.cols; j++) out.data[j] += m.data[i * m.cols + j]!;
+    for (let j = 0; j < m.cols; j++) {
+      out.data[j] = out.data[j]! + m.data[i * m.cols + j]!;
+    }
   }
   return out;
 }

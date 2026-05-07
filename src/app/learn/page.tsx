@@ -1,5 +1,13 @@
 import Link from 'next/link';
-import { ArrowRight, Brain, Calculator, GitBranch, Layers, Rocket, TrendingDown } from 'lucide-react';
+import {
+  ArrowRight,
+  Brain,
+  Calculator,
+  GitBranch,
+  Layers,
+  Rocket,
+  TrendingDown,
+} from 'lucide-react';
 import { GradIcon, SparklesIcon } from '@/components/icons/presets';
 
 export default function LearnHome() {
@@ -14,21 +22,24 @@ export default function LearnHome() {
             Neural networks, from first principles
           </h1>
           <p className="mt-1 text-sm text-muted-foreground">
-            A hand-held tour through the linear algebra, calculus, and engineering that make a neural network
-            actually learn. Every chapter has runnable demos right next to the math — no faith required.
+            A hand-held tour through the linear algebra, calculus, and engineering that make a
+            neural network actually learn. Every chapter has runnable demos right next to the math —
+            no faith required.
           </p>
         </div>
       </header>
 
       <h2>How to use this guide</h2>
       <p>
-        Read the chapters in order if you're new — each one builds on the previous. Every concept appears in three
-        forms: the equation (so you can be precise), an explanation in plain language (so you can build intuition),
-        and an interactive demo (so you can poke it until it clicks).
+        Read the chapters in order if you're new — each one builds on the previous. Every concept
+        appears in three forms: the equation (so you can be precise), an explanation in plain
+        language (so you can build intuition), and an interactive demo (so you can poke it until it
+        clicks).
       </p>
       <p>
-        When a paragraph references something earlier, it links back to it. When a chapter introduces a new symbol,
-        it's defined the moment it appears. Bring a pen — writing the math out helps.
+        When a paragraph references something earlier, it links back to it. When a chapter
+        introduces a new symbol, it's defined the moment it appears. Bring a pen — writing the math
+        out helps.
       </p>
 
       <h2>The map</h2>
@@ -119,7 +130,9 @@ function ChapterCard({
       <div className="rounded-lg border bg-background/40 p-2 text-fuchsia-300">{icon}</div>
       <div className="flex-1">
         <div className="flex items-center justify-between">
-          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Chapter {n}</span>
+          <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+            Chapter {n}
+          </span>
           <ArrowRight className="h-4 w-4 text-muted-foreground transition-transform group-hover:translate-x-1" />
         </div>
         <div className="mt-1 font-medium">{title}</div>

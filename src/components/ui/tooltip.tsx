@@ -50,7 +50,13 @@ export function Tooltip({ content, children, side = 'top', className }: Props) {
   );
 }
 
-export function HelpHint({ children, className }: { children: React.ReactNode; className?: string }) {
+export function HelpHint({
+  children,
+  className,
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
   return (
     <Tooltip content={children}>
       <span

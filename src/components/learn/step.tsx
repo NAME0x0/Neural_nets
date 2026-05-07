@@ -17,7 +17,7 @@ export function Step({ index, title, children, className }: Props) {
         </span>
         <h3 className="text-lg font-semibold">{title}</h3>
       </div>
-      <div className="prose prose-invert prose-sm max-w-none [&>p]:my-2 [&>ul]:my-2 [&>ol]:my-2">
+      <div className="prose prose-invert prose-sm max-w-none [&>ol]:my-2 [&>p]:my-2 [&>ul]:my-2">
         {children}
       </div>
     </section>

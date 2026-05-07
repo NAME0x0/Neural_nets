@@ -25,7 +25,12 @@ export function Workspace() {
       switch (msg.type) {
         case 'metrics':
           if (Number.isFinite(msg.loss)) {
-            pushMetrics({ epoch: msg.epoch, step: msg.step, loss: msg.loss, accuracy: msg.accuracy });
+            pushMetrics({
+              epoch: msg.epoch,
+              step: msg.step,
+              loss: msg.loss,
+              accuracy: msg.accuracy,
+            });
           }
           setSnapshot(msg.weights);
           break;

@@ -21,8 +21,14 @@ export function SingleNeuronDemo() {
     const h = 320;
     const svg = d3.select(root).append('svg').attr('width', w).attr('height', h);
     const range = 4;
-    const xScale = d3.scaleLinear().domain([-range, range]).range([10, w - 10]);
-    const yScale = d3.scaleLinear().domain([-range, range]).range([h - 10, 10]);
+    const xScale = d3
+      .scaleLinear()
+      .domain([-range, range])
+      .range([10, w - 10]);
+    const yScale = d3
+      .scaleLinear()
+      .domain([-range, range])
+      .range([h - 10, 10]);
     const RES = 80;
     const cell = (w - 20) / RES;
     const cellH = (h - 20) / RES;
@@ -81,7 +87,8 @@ export function SingleNeuronDemo() {
           <div className="mb-1 text-muted-foreground">Decision rule:</div>
           <InlineMath>{`\\sigma(${w1.toFixed(1)}x_1 + ${w2.toFixed(1)}x_2 + ${b.toFixed(1)}) > 0.5`}</InlineMath>
           <p className="mt-2 text-muted-foreground">
-            Green line is where output = 0.5. The neuron splits the plane in half — a single linear boundary.
+            Green line is where output = 0.5. The neuron splits the plane in half — a single linear
+            boundary.
           </p>
         </div>
       </div>

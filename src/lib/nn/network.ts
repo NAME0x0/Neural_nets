@@ -40,14 +40,18 @@ export class Network {
   }
 
   addLayer(cfg: LayerConfig): void {
-    const inSize = this.layers.length === 0 ? this.inputSize : this.layers[this.layers.length - 1]!.outputSize;
+    const inSize =
+      this.layers.length === 0 ? this.inputSize : this.layers[this.layers.length - 1]!.outputSize;
     this.layers.push(new Layer(inSize, cfg.size, cfg.activation, this.rng));
   }
 
   setHyperparams({
     learningRate,
     optimizer,
-  }: { learningRate?: number; optimizer?: OptimizerName }): void {
+  }: {
+    learningRate?: number;
+    optimizer?: OptimizerName;
+  }): void {
     if (learningRate !== undefined) this.learningRate = learningRate;
     if (optimizer !== undefined) this.optimizerName = optimizer;
     this.optimizer = makeOptimizer(this.optimizerName, this.learningRate);

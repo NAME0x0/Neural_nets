@@ -68,7 +68,11 @@ interface NumericExampleProps {
 }
 
 /** Concrete worked example with actual numbers — the "let me show you with real values" block. */
-export function NumericExample({ children, className, title = 'Worked example' }: NumericExampleProps) {
+export function NumericExample({
+  children,
+  className,
+  title = 'Worked example',
+}: NumericExampleProps) {
   return (
     <aside
       className={cn(

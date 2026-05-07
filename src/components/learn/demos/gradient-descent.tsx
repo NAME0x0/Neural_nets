@@ -38,8 +38,14 @@ export function GradientDescentDemo() {
     const svg = d3.select(root).append('svg').attr('width', w).attr('height', h);
     const xs = d3.range(-6, 6, 0.05);
     const ys = xs.map(f);
-    const xScale = d3.scaleLinear().domain([-6, 6]).range([40, w - 16]);
-    const yScale = d3.scaleLinear().domain([0, 18]).range([h - 30, 20]);
+    const xScale = d3
+      .scaleLinear()
+      .domain([-6, 6])
+      .range([40, w - 16]);
+    const yScale = d3
+      .scaleLinear()
+      .domain([0, 18])
+      .range([h - 30, 20]);
 
     svg
       .append('g')
@@ -56,7 +62,13 @@ export function GradientDescentDemo() {
       .line<number>()
       .x((_, i) => xScale(xs[i]!))
       .y((d) => yScale(d));
-    svg.append('path').datum(ys).attr('fill', 'none').attr('stroke', '#a78bfa').attr('stroke-width', 2.5).attr('d', line);
+    svg
+      .append('path')
+      .datum(ys)
+      .attr('fill', 'none')
+      .attr('stroke', '#a78bfa')
+      .attr('stroke-width', 2.5)
+      .attr('d', line);
 
     svg
       .append('g')
@@ -100,7 +112,13 @@ export function GradientDescentDemo() {
             <span>Learning rate η</span>
             <span className="font-mono text-muted-foreground">{lr.toFixed(2)}</span>
           </div>
-          <Slider min={0.05} max={2.5} step={0.05} value={[lr]} onValueChange={(v) => setLr(v[0]!)} />
+          <Slider
+            min={0.05}
+            max={2.5}
+            step={0.05}
+            value={[lr]}
+            onValueChange={(v) => setLr(v[0]!)}
+          />
         </div>
         <div className="flex items-end gap-2">
           <Button
@@ -125,8 +143,8 @@ export function GradientDescentDemo() {
         </div>
       </div>
       <p className="text-xs text-muted-foreground">
-        Watch what happens with η &gt; 2: the step overshoots and the ball oscillates instead of settling. That's
-        why learning-rate tuning matters.
+        Watch what happens with η &gt; 2: the step overshoots and the ball oscillates instead of
+        settling. That's why learning-rate tuning matters.
       </p>
     </div>
   );

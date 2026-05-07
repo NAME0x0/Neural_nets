@@ -2,7 +2,13 @@
 
 import { create } from 'zustand';
 import type { Dataset, SplitDataset } from '@/lib/datasets/types';
-import type { ActivationName, LossName, NetworkConfig, NetworkSnapshot, OptimizerName } from '@/lib/nn/types';
+import type {
+  ActivationName,
+  LossName,
+  NetworkConfig,
+  NetworkSnapshot,
+  OptimizerName,
+} from '@/lib/nn/types';
 
 export interface LayerSpec {
   id: string;

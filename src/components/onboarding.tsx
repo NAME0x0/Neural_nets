@@ -104,8 +104,9 @@ export function Onboarding() {
                 Build, train, and understand your first neural network.
               </h2>
               <p className="mt-2 text-sm text-muted-foreground">
-                You're about to play with a real neural network running entirely in your browser. Take the
-                30-second tour to see where everything is, then read the curriculum if you want the math behind it.
+                You're about to play with a real neural network running entirely in your browser.
+                Take the 30-second tour to see where everything is, then read the curriculum if you
+                want the math behind it.
               </p>
               <div className="mt-5 flex flex-wrap gap-2">
                 <Button onClick={startTour}>
@@ -127,7 +128,13 @@ export function Onboarding() {
 
       <AnimatePresence>
         {tourIndex !== null && (
-          <TourOverlay step={STEPS[tourIndex]!} index={tourIndex} total={STEPS.length} onNext={next} onExit={exit} />
+          <TourOverlay
+            step={STEPS[tourIndex]!}
+            index={tourIndex}
+            total={STEPS.length}
+            onNext={next}
+            onExit={exit}
+          />
         )}
       </AnimatePresence>
     </>
@@ -172,15 +179,23 @@ function TourOverlay({
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-40 pointer-events-none"
+      className="pointer-events-none fixed inset-0 z-40"
     >
-      <div className="pointer-events-auto absolute inset-0 bg-background/65 backdrop-blur-[1px]" onClick={onExit} />
+      <div
+        className="pointer-events-auto absolute inset-0 bg-background/65 backdrop-blur-[1px]"
+        onClick={onExit}
+      />
       {rect && (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           className="absolute rounded-xl ring-2 ring-fuchsia-400/80 ring-offset-2 ring-offset-background"
-          style={{ top: rect.top - 6, left: rect.left - 6, width: rect.width + 12, height: rect.height + 12 }}
+          style={{
+            top: rect.top - 6,
+            left: rect.left - 6,
+            width: rect.width + 12,
+            height: rect.height + 12,
+          }}
         />
       )}
       <motion.div

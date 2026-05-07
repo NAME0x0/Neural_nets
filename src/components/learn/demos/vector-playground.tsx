@@ -15,7 +15,6 @@ export function VectorPlayground() {
   const magB = Math.hypot(b[0], b[1]);
   const cos = magA && magB ? dot / (magA * magB) : 0;
   const angleDeg = (Math.acos(Math.max(-1, Math.min(1, cos))) * 180) / Math.PI;
-  const sum: [number, number] = [a[0] + b[0], a[1] + b[1]];
 
   useEffect(() => {
     if (!ref.current) return;
@@ -25,8 +24,14 @@ export function VectorPlayground() {
     const h = 360;
     const svg = d3.select(root).append('svg').attr('width', w).attr('height', h);
     const range = 6;
-    const x = d3.scaleLinear().domain([-range, range]).range([10, w - 10]);
-    const y = d3.scaleLinear().domain([-range, range]).range([h - 10, 10]);
+    const x = d3
+      .scaleLinear()
+      .domain([-range, range])
+      .range([10, w - 10]);
+    const y = d3
+      .scaleLinear()
+      .domain([-range, range])
+      .range([h - 10, 10]);
 
     svg
       .append('line')
@@ -97,10 +102,11 @@ export function VectorPlayground() {
         .text(label);
     };
 
+    const sum: [number, number] = [a[0] + b[0], a[1] + b[1]];
     drawArrow(a, '#38bdf8', 'a');
     drawArrow(b, '#e879f9', 'b');
     drawArrow(sum, '#34d399', 'a+b', true);
-  }, [a, b, sum]);
+  }, [a, b]);
 
   return (
     <div className="grid gap-4 lg:grid-cols-[1fr_280px]">
@@ -126,7 +132,15 @@ export function VectorPlayground() {
   );
 }
 
-function SliderRow({ label, value, onChange }: { label: string; value: number; onChange: (v: number) => void }) {
+function SliderRow({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: number;
+  onChange: (v: number) => void;
+}) {
   return (
     <div>
       <div className="mb-1 flex justify-between text-xs">

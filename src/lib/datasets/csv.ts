@@ -47,7 +47,9 @@ export function csvToDataset(
   const { headers, rows } = parsed;
   const targetIdx = headers.indexOf(opts.targetColumn);
   if (targetIdx === -1) {
-    throw new Error(`Target column "${opts.targetColumn}" not found. Headers: ${headers.join(', ')}`);
+    throw new Error(
+      `Target column "${opts.targetColumn}" not found. Headers: ${headers.join(', ')}`,
+    );
   }
   const featureIdx = headers.map((_, i) => i).filter((i) => i !== targetIdx);
   const featureNames = featureIdx.map((i) => headers[i]!);

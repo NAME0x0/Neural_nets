@@ -23,20 +23,45 @@ export function ChainRuleDemo() {
         <Slider min={-3} max={3} step={0.1} value={[x]} onValueChange={(v) => setX(v[0]!)} />
       </div>
       <div className="grid gap-2 lg:grid-cols-3">
-        <Stage label="Inner" lhs="u = 2x + 1" rhs={`u = ${u.toFixed(2)}`} color="border-sky-400/40 bg-sky-500/10" />
-        <Stage label="Outer" lhs="y = u^2" rhs={`y = ${y.toFixed(2)}`} color="border-violet-400/40 bg-violet-500/10" />
-        <Stage label="Composed" lhs="y(x) = (2x+1)^2" rhs={`y = ${y.toFixed(2)}`} color="border-emerald-400/40 bg-emerald-500/10" />
+        <Stage
+          label="Inner"
+          lhs="u = 2x + 1"
+          rhs={`u = ${u.toFixed(2)}`}
+          color="border-sky-400/40 bg-sky-500/10"
+        />
+        <Stage
+          label="Outer"
+          lhs="y = u^2"
+          rhs={`y = ${y.toFixed(2)}`}
+          color="border-violet-400/40 bg-violet-500/10"
+        />
+        <Stage
+          label="Composed"
+          lhs="y(x) = (2x+1)^2"
+          rhs={`y = ${y.toFixed(2)}`}
+          color="border-emerald-400/40 bg-emerald-500/10"
+        />
       </div>
       <Equation>{`\\frac{dy}{dx} \\;=\\; \\underbrace{\\frac{dy}{du}}_{2u\\,=\\,${dydu.toFixed(2)}} \\cdot \\underbrace{\\frac{du}{dx}}_{2} \\;=\\; ${dydx.toFixed(2)}`}</Equation>
       <p className="text-sm text-muted-foreground">
-        The chain rule lets us differentiate compositions one step at a time. Backpropagation is just this rule
-        applied across many layers in sequence.
+        The chain rule lets us differentiate compositions one step at a time. Backpropagation is
+        just this rule applied across many layers in sequence.
       </p>
     </div>
   );
 }
 
-function Stage({ label, lhs, rhs, color }: { label: string; lhs: string; rhs: string; color: string }) {
+function Stage({
+  label,
+  lhs,
+  rhs,
+  color,
+}: {
+  label: string;
+  lhs: string;
+  rhs: string;
+  color: string;
+}) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 6 }}

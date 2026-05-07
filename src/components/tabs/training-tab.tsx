@@ -97,7 +97,8 @@ export function TrainingTab({ worker }: Props) {
             </div>
             <div className="col-span-2 space-y-1.5">
               <Label>
-                Learning rate <span className="text-muted-foreground">({learningRate.toFixed(4)})</span>
+                Learning rate{' '}
+                <span className="text-muted-foreground">({learningRate.toFixed(4)})</span>
               </Label>
               <Slider
                 min={0.0001}
@@ -138,10 +139,7 @@ export function TrainingTab({ worker }: Props) {
 
           <div className="grid grid-cols-3 gap-2 text-sm">
             <Stat label="Epoch" value={currentEpoch} />
-            <Stat
-              label="Loss"
-              value={history.loss[history.loss.length - 1]?.toFixed(4) ?? '—'}
-            />
+            <Stat label="Loss" value={history.loss[history.loss.length - 1]?.toFixed(4) ?? '—'} />
             <Stat
               label="Accuracy"
               value={
@@ -205,10 +203,16 @@ function LineChart({ values, color, yMax }: { values: number[]; color: string; y
         .text('No data yet — start training.');
       return;
     }
-    const x = d3.scaleLinear().domain([0, values.length - 1]).range([32, w - 8]);
+    const x = d3
+      .scaleLinear()
+      .domain([0, values.length - 1])
+      .range([32, w - 8]);
     const ymax = yMax ?? d3.max(values) ?? 1;
     const ymin = Math.min(0, d3.min(values) ?? 0);
-    const y = d3.scaleLinear().domain([ymin, ymax]).range([h - 24, 8]);
+    const y = d3
+      .scaleLinear()
+      .domain([ymin, ymax])
+      .range([h - 24, 8]);
 
     svg
       .append('g')

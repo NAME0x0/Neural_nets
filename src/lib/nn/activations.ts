@@ -97,7 +97,10 @@ const softmax: Activation = {
         out.data[i * z.cols + j] = e;
         sum += e;
       }
-      for (let j = 0; j < z.cols; j++) out.data[i * z.cols + j] /= sum;
+      for (let j = 0; j < z.cols; j++) {
+        const index = i * z.cols + j;
+        out.data[index] = out.data[index]! / sum;
+      }
     }
     return out;
   },
@@ -115,4 +118,11 @@ export const ACTIVATIONS: Record<ActivationName, Activation> = {
   softmax,
 };
 
-export const ACTIVATION_LIST: ActivationName[] = ['relu', 'leaky_relu', 'sigmoid', 'tanh', 'linear', 'softmax'];
+export const ACTIVATION_LIST: ActivationName[] = [
+  'relu',
+  'leaky_relu',
+  'sigmoid',
+  'tanh',
+  'linear',
+  'softmax',
+];
